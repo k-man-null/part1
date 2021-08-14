@@ -1,33 +1,32 @@
 import React, { useState } from "react"
-const Display = ({ counter })=> {
-  return (
-    <div>{counter}</div>
-  )
+
+
+const App = () => { 
+
+const [left, setLeft] = useState(0)
+const [right, setRight] = useState(0)
+const [allClicks, setAll] = useState([])
+
+const handleLeftClick = () => {
+  setAll(allClicks.concat('L'))
+  setLeft(left + 1)
+}
+//'concat' is preferred to 'push' because it returns a copy of the array
+const handRightClick = () => {
+  setAll(allClicks.concat('R'))
+  setRight(right + 1)
 }
 
-const Button = ({onClick, text})=> 
-  (
-    <button onClick={onClick}>
-      {text}
-    </button>
-  )
-
-const App = () => {
-    const [ counter, setCounter ] = useState(0)
-
-    const increaseByOne = ()=> setCounter(counter + 1)
-    const decreaseByOne = ()=> setCounter(counter - 1)
-    const setToZero = ()=> setCounter(0)
-    return (
-      <div>
-        <Display counter={counter}/>
-        <Button onClick={increaseByOne} text='plus'/>
-        <Button onClick={decreaseByOne} text='minus'/>
-        <Button onClick={setToZero} text='reset'/>
-      </div>
-    )
+return(
+  <div>
+    {left}
+    <button onClick={handleLeftClick}>Left</button>
+    <button onClick={handRightClick}>Right</button>
+    {right}
+    <p>{allClicks.join(' ')}</p>
+  </div>
+)
 }
-
 export default App
 
 
