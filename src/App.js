@@ -5,13 +5,13 @@ const Display = ({ counter })=> {
   )
 }
 
-const Button = ({onClick, text})=> {
-  return (
+const Button = ({onClick, text})=> 
+  (
     <button onClick={onClick}>
       {text}
     </button>
   )
-}
+
 const App = () => {
     const [ counter, setCounter ] = useState(0)
 
