@@ -7,12 +7,14 @@ function Header(props) {
 }
 
 const Content = (props) => {
-  console.log(props)
+  console.log('-------');
+  console.log(props);
+  console.log('-------');
   return (
     <>
-    <p>{props.part1} {props.exercises1}</p>
-    <p>{props.part2} {props.exercises2}</p>
-    <p>{props.part3} {props.exercises3}</p>
+    <p>{props.parts[0].name} {props.parts[0].exercises}</p>
+    <p>{props.parts[1].name} {props.parts[1].exercises}</p>
+    <p>{props.parts[2].name} {props.parts[2].exercises}</p>
   </>
   )
 }
@@ -46,7 +48,7 @@ const App = () => {
   return (
     <div>
       <Header course = {course.name} />
-      <Content part1 = {course.parts[0].name} part2 = {course.parts[1].name} part3 = {course.parts[2].name} exercises1 ={course.parts[0].exercises} exercises2 = {course.parts[1].exercises} exercises3 = {course.parts[2].exercises}/>
+      <Content parts = {course.parts}/>
       <Total total = {course.parts[0].exercises+course.parts[1].exercises+course.parts[2].exercises}/>      
     </div>
   ) 
